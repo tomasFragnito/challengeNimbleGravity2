@@ -1,0 +1,26 @@
+{
+  "name": "challengenimble2",
+  "version": "1.0.0",
+  "description": "challenge NimbleGravity segunda parte",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomasFragnito/challengeNimbleGravity2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomasFragnito/challengeNimbleGravity2/issues"
+  },
+  "homepage": "https://github.com/tomasFragnito/challengeNimbleGravity2#readme",
+  "dependencies": {
+    "axios": "^1.13.5",
+    "pg": "^8.18.0"
+  }
+}
