@@ -15,13 +15,24 @@ console.log("EMAIL:", EMAIL);
 //Funcion principal
 async function runChallenge() {
     try {
+        // la funcion getChallengeInfo() que hace el GET al endpoint del challenge
+        // y devuelve un OBJETO con los datos necesarios: applicationId y credenciales de la base de datos
         const data = await getChallengeInfo();
+
+        // se conecta a la base de datos PostgreSQL usando las credenciales obtenidas en la funcion getChallengeInfo
+        // Devuelve un OBJETO cliente (client) conectado listo para ejecutar querys
         const client = await connectDB(data.dbCredentials);
+
+        // rjecuta la query SQL en la base de datos conectada usando el applicationId
+        // devuelve el resultado numerico que es el monto maximo
         const answer = await executeQuery(client, data.applicationId);
 
         // URL de Pastebin
         const pastebinUrl = "https://pastebin.com/nFGMutjJ";
 
+
+        // envia la respuesta al endpoint del challenge mediante POST
+        // incluye applicationId, la URL de Pastebin con la query, y el resultado numerico answer
         await submitAnswer(data.applicationId, pastebinUrl, answer);
 
     } catch (err) {
